@@ -16,8 +16,8 @@ public class SimpleProducer {
           // null, "hello world"
           Properties props = new Properties();
           //bootstrap.servers, key.serializer.class, value.serializer.class
-          props.setProperty("bootstrap.servers","ec2-52-78-116-24.ap-northeast-2.compute.amazonaws.com:9092");
-          props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"ec2-52-78-116-24.ap-northeast-2.compute.amazonaws.com:9092");
+          props.setProperty("bootstrap.servers","ip:9092");
+          props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"ip:9092");
           props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
           props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
@@ -25,7 +25,7 @@ public class SimpleProducer {
           KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(props);
 
           //ProducerRecord object creation
-          ProducerRecord<String, String>  producerRecord = new ProducerRecord<>(topicName,"id-001","hello world");
+          ProducerRecord<String, String>  producerRecord = new ProducerRecord<>(topicName,"hello world 2 ");
 
           //KafkaProducer message send
           kafkaProducer.send(producerRecord);
